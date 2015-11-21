@@ -183,7 +183,7 @@ for K in [2, 5, 10, 20, 40, 60, 80, 160]:
     allRet = 0
     for k in range(8):
         train, test = SplitData(data, 8, k, 100)
-        precision, recall, coverage, ret = PrecisionRecallCoverage(train, test, 5, K)
+        precision, recall, coverage, ret = PrecisionRecallCoverage(train, test, 15, K)
         allPrecision += precision
         allRecall += recall
         allCoverage += coverage
