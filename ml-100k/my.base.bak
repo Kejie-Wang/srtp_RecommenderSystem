@@ -1,0 +1,27 @@
+u1:
+precision =  0.444008714597
+recall =  0.05095
+
+u2:
+precision =  0.350382848392
+recall =  0.0572
+
+u3:
+precision =  0.288377445339
+recall =  0.06265
+
+u4:
+precision =  0.264572047671
+recall =  0.06105
+
+u5:
+precision =  0.270118662352
+recall =  0.0626
+
+ua:
+precision =  0.201908801697
+recall =  0.100954400848
+
+ub:
+precision =  0.207423117709
+recall =  0.103711558855
