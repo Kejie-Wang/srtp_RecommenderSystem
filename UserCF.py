@@ -96,7 +96,7 @@ def UserSimilarityBasedInverseTable(train):
                     C[u] = dict()
                 if v not in C[u]:
                     C[u][v] = 0
-                C[u][v] += 1 / math.log(1 + len(users))
+                C[u][v] += 1
 
     #calculte final similarity of the matrix W
     W = dict()
@@ -162,7 +162,7 @@ def PrecisionRecallCoverage(train, test, N, K):
             ret += math.log(1 + item_popularity[item])
             n += 1
 
-    print len(all_items), len(recommend_items)
+    #print len(all_items), len(recommend_items)
     precision = hit / 1.0 / n_precision
     recall = hit / 1.0 / n_recall
     coverage = len(recommend_items) / 1.0 / len(all_items)
@@ -175,21 +175,18 @@ def PrecisionRecallCoverage(train, test, N, K):
 #test = ReadData("ml-100k//u4.test")
 data = ReadData("ml-100k//u.data", '\t')
 
-allPrecision = 0
-allRecall = 0
-allCoverage = 0
-allRet = 0
 for K in [2, 5, 10, 20, 40, 60, 80, 160]:
     print "k = ", K
+    allPrecision = 0
+    allRecall = 0
+    allCoverage = 0
+    allRet = 0
     for k in range(8):
         train, test = SplitData(data, 8, k, 100)
-        precision, recall, coverage, ret = PrecisionRecallCoverage(train, test, 10, K)
+        precision, recall, coverage, ret = PrecisionRecallCoverage(train, test, 5, K)
         allPrecision += precision
         allRecall += recall
         allCoverage += coverage
         allRet += ret
 
-    print "precision = ", allPrecision / 8.0
-    print "recall = ", allRecall / 8.0
-    print "coverage = ", allCoverage / 8.0
-    print "ret = ", allRet / 8.0
+    print allPrecision / 8.0, allRecall / 8.0, allCoverage / 8.0, allRet / 8.0
